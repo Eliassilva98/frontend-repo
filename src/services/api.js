@@ -19,7 +19,8 @@ export const uploadFile = async (file) => {
 
 export const getHistory = async () => {
   const response = await api.get('/api/history')
-  return response.data.conversions
+  // return response.data.conversions
+  response.data?.conversions || response.data || []
 }
 
 export const downloadFile = (downloadUrl) => {

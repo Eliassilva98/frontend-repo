@@ -20,7 +20,7 @@ const Home = () => {
     const loadHistory = async () => {
       try {
         const data = await getHistory()
-        const formattedData = data.map(item => ({
+        const formattedData = (data || []).map(item => ({
           id: item.id || item._id,
           originalName: item.originalName,
           convertedName: item.pdfName,
