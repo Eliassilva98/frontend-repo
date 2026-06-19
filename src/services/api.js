@@ -1,9 +1,13 @@
 import axios from 'axios'
 
+const API_URL =
+  import.meta.env.VITE_API_URL ||
+  'https://word-to-pdf-api-production-c67b.up.railway.app'
+
+const baseURL = API_URL.startsWith('http') ? API_URL : `https://${API_URL}`
+
 const api = axios.create({
-  baseURL:
-    import.meta.env.VITE_API_URL ||
-    'https://word-to-pdf-api-production.up.railway.app'
+  baseURL: baseURL
 })
 
 export const uploadFile = async (file) => {
